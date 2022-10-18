@@ -23,3 +23,9 @@ Route::get('/factorial', function () {
 });
 
 Route::post('calcularFactorial', [CalculosController::class, 'factorial'])->name('factorial');
+
+Route::get('/suma', function () {
+    return view('suma');
+});
+
+Route::post('calcularSuma', [CalculosController::class, 'suma'])->name('suma');

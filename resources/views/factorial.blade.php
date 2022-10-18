@@ -13,9 +13,15 @@
             type="number" 
             value="{{ isset($n) ? $n : 1  }}" 
             min="1" 
-            max="30" 
+            max="20"
+            required
             name="n"
         >
+        @error('n')    
+        <div>
+            {{ $message }}
+        </div>
+        @enderror    
         <button type="submit">
             Calcular
         </button>
