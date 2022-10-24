@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class CalculosController extends Controller
 {
@@ -26,5 +27,16 @@ class CalculosController extends Controller
         $n2 = intval($request->n2);
         $suma = $n1 + $n2;
         return view('suma', compact('n1', 'n2', 'suma'));       
+    }
+
+    function palindromo(Request $request){
+        $request->validate([
+            'cadena' => 'required',
+        ]);
+        $cadena = $request->cadena;
+        $cadTrans = str_replace(' ', '', strtolower($cadena));
+        $cadInv = strrev($cadTrans);
+        $result = strcmp($cadTrans, $cadInv) == 0 ? 'es' : 'NO es';
+        return view('palindromo', compact('cadena', 'result'));         
     }
 }

@@ -29,3 +29,9 @@ Route::get('/suma', function () {
 });
 
 Route::post('calcularSuma', [CalculosController::class, 'suma'])->name('suma');
+
+Route::get('/palindromo', function(){
+    return view('palindromo');
+});
+
+Route::post('calcularPalindromo', [CalculosController::class, 'palindromo'])->name('palindromo');
